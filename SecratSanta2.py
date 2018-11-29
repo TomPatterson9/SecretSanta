@@ -63,7 +63,7 @@ def email(x, santaArrayTwo, emailArray):
         yourItem = yourNumber[0]
         yourItem1 = yourNumber[1]
 
-        fromaddr = "69gaffhouse@gmail.com"
+        fromaddr = "" #insert your email address
         toaddr = emailArray[i]
         msg = MIMEMultipart()
         msg['From'] = fromaddr
@@ -72,11 +72,11 @@ def email(x, santaArrayTwo, emailArray):
         body ="Your number is: " + str(yourItem) +"\nYou are buying for: " + str(yourItem1)
         msg.attach(MIMEText(body,'plain'))
             
-        server = smtplib.SMTP(host='smtp.gmail.com', port=587)
+        server = smtplib.SMTP(host='smtp.gmail.com', port=587) # change to your wanted mail server
         server.ehlo()
         server.starttls()
         server.ehlo()
-        server.login("69GaffHouse@gmail.com", "Bray123!")
+        server.login("email", "password")
         text = msg.as_string()
         server.sendmail(fromaddr, toaddr, text)
     
